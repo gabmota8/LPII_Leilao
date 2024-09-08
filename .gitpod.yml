@@ -1,0 +1,11 @@
+tasks:
+  - name: "Configurar o ambiente"
+    init: |
+      sdk install java 17.0.8-amzn
+      sdk install maven
+      ./mvnw clean install
+    command: ./mvnw quarkus:dev
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 5005 # Para depuração, se necessário
